@@ -1,4 +1,4 @@
-package Personen;
+package main;
 /**
  * <h1>Buch</h1>
  * <h6>Buchklasse</h6>

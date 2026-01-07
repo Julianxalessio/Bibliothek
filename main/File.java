@@ -1,4 +1,4 @@
-package Personen;
+package main;
 
 import java.util.ArrayList;
 import java.io.BufferedReader;

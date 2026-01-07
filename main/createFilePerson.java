@@ -1,4 +1,4 @@
-package Personen;
+package main;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -35,7 +35,7 @@ public class createFilePerson {
 		path += "\\" + this.name + ".json";
 		try	{
 			FileWriter myWriter = new FileWriter(this.path);
-			myWriter.write("{");
+			myWriter.write("[");
 			myWriter.write(System.lineSeparator());
 			int amount = 0;
 			for (Person person : this.personenListe) {
@@ -62,7 +62,7 @@ public class createFilePerson {
 				}
 
 			}
-			myWriter.write("}");
+			myWriter.write("]");
 			
 			myWriter.close();
 		} catch (IOException e) {

@@ -1,4 +1,4 @@
-package Personen;
+package main;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -34,7 +34,7 @@ public class createFileBook {
 		path += "\\" + this.name + ".json";
 		try	{
 			FileWriter myWriter = new FileWriter(this.path);
-			myWriter.write("{");
+			myWriter.write("[");
 			myWriter.write(System.lineSeparator());
 			int amount = 0;
 			for (Buch Buch : this.buchList) {
@@ -44,13 +44,13 @@ public class createFileBook {
 					myWriter.write(System.lineSeparator());
 					myWriter.write("    \"Titel\": " + "\"" + Buch.titel + "\",");
 					myWriter.write(System.lineSeparator());
-					myWriter.write("    \"Autor\": " + "\"" + Buch.autor + "\"");
+					myWriter.write("    \"Autor\": " + "\"" + Buch.autor + "\",");
 					myWriter.write(System.lineSeparator());
 					myWriter.write("    \"ISBN\": " + "\"" + Buch.ISBN + "\",");
 					myWriter.write(System.lineSeparator());
 					myWriter.write("    \"Genre\": " + "\"" + Buch.genre + "\",");
 					myWriter.write(System.lineSeparator());
-					myWriter.write("    \"Anzahl verfügbar\": " + "\"" + Buch.inventar + "\",");
+					myWriter.write("    \"Anzahl verfügbar\": " + "\"" + Buch.inventar + "\"");
 				if (amount < this.buchList.size()) {
 					myWriter.write("  },");
 					myWriter.write(System.lineSeparator());
@@ -61,7 +61,7 @@ public class createFileBook {
 				}
 
 			}
-			myWriter.write("}");
+			myWriter.write("]");
 			myWriter.close();
 		} catch (IOException e) {
 			e.printStackTrace();
