@@ -9,7 +9,8 @@ import java.util.Scanner;
  * <h1>Bibliothek</h1>
  * <h6>Das Startskript mit Befehlen</h6>
  * @author Zwahlen Diego und Lombardo Julian
- * @version 1.0
+ * @version 1.2
+ * @since 2026-01-07
  */
 
 
@@ -19,6 +20,10 @@ public class Bibliothek {
 	private final static List<Buch> buchListe = new ArrayList<>();
 	private  final static List<Ausleihe>  ausleiheListe = new ArrayList<>();
 	
+	/** 
+	 * @param args
+	 * @throws IOException
+	 */
 	public static void main (String[] args) throws IOException {
 		Scanner scFLOAT = new Scanner(System.in);
 		Scanner scSTRING = new Scanner(System.in);

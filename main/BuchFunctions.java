@@ -7,7 +7,8 @@ import java.util.Scanner;
 /**<h1>Buchfunktionen</h1>
  *<h6>Funktionen für Buch</h6>
  * @author Zwahlen Diego und Lombardo Julian
- * @version 1.0
+ * @version 1.2
+ * @since 2026-01-07
  */
 
 public class BuchFunctions {

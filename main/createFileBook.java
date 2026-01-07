@@ -7,7 +7,8 @@ import java.util.List;
  * <h1>Filecreator Book</h1>
  * <h6>Erstellen von JSON-Dateien für Buch</h6>
  * @author Zwahlen Diego und Lombardo Julian
- * @version 1.0
+ * @version 1.2
+ * @since 2026-01-07
  */
 
 public class createFileBook {

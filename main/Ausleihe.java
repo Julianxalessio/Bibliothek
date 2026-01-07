@@ -4,8 +4,8 @@ package main;
  * <h1>Ausleihe</h1>
  * <h6>Ausleihe für die der Buch</h6>
  * @author Zwahlen Diego und Lombardo Julian
- * @version 1.0
- *
+ * @version 1.2
+ * @since 2026-01-07
  *
  *
  */

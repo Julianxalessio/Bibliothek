@@ -10,7 +10,8 @@ import java.util.List;
  * <h1>Dateileser</h1>
  * <h6>Dateileser für CSV-Dateien</h6>
  * @author Zwahlen Diego und Lombardo Julian
- * @version 1.0
+ * @version 1.2
+ * @since 2026-01-07
  */
 
 public class File {

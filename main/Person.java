@@ -3,7 +3,8 @@ package main;
  * <h1>Person</h1>
  * <h6>Personenklasse</h6>
  * @author Zwahlen Diego und Lombardo Julian
- * @version 1.0
+ * @version 1.2
+ * @since 2026-01-07
  */
 public class Person {
 	/**
