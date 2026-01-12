@@ -11,7 +11,7 @@ import java.util.Scanner;
  * @since 2026-01-07
  */
 
-public class BuchFunctions {
+public class Buchfunktionen {
     /**
      * Gibt die Bücher im CSV-Format aus.
      *
@@ -69,7 +69,7 @@ public class BuchFunctions {
         System.out.println();
     }
     /**
-     * Holt den Pfad und das Trennzeichen der CSV-Datei vom user und gibt diese an {@link File} weiter.
+     * Holt den Pfad und das Trennzeichen der CSV-Datei vom user und gibt diese an {@link Datei} weiter.
      *
      * @param scSTRING
      * @param buchListe
@@ -80,7 +80,7 @@ public class BuchFunctions {
         String path = scSTRING.nextLine();
         System.out.print("Trennzeichen: ");
         String zeichen = scSTRING.nextLine();
-        File file = new File(path);
+        Datei file = new Datei(path);
         List <String> lines = file.readFileBuch();
         int amounts = 0;
         for (String line : lines) {
@@ -101,7 +101,7 @@ public class BuchFunctions {
         System.out.println();
     }
     /**
-     * Holt den Pfad und den Namen der JSOn-Datei vom User und gibt sie an {@link createFileBook} weiter.
+     * Holt den Pfad und den Namen der JSOn-Datei vom User und gibt sie an {@link DateierzeugerBuch} weiter.
      *
      * @param sc
      * @param buchListe
@@ -112,7 +112,7 @@ public class BuchFunctions {
         String path = sc.nextLine();
         System.out.print("Dateiname: ");
         String name = sc.nextLine();
-        createFileBook file = new createFileBook(buchListe, path, name);
+        DateierzeugerBuch file = new DateierzeugerBuch(buchListe, path, name);
         file.createJSON();
         System.out.println("JSON wurde erstellt!");
         System.out.println();

@@ -14,7 +14,7 @@ import java.util.List;
  * @since 2026-01-07
  */
 
-public class File {
+public class Datei {
 	String path;
 
 	/**
@@ -22,7 +22,7 @@ public class File {
 	 *
 	 * @param path
 	 */
-	public File (String path) {
+	public Datei(String path) {
 		this.path = path;
 	}
 

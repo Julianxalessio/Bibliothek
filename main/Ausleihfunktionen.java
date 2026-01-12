@@ -12,7 +12,7 @@ import java.util.Scanner;
  */
 
 
-public class AusleiheFunctions {
+public class Ausleihfunktionen {
 
     /**
      * Aus der {@link Ausleihe} eine JSON-Datei erstellen
@@ -27,7 +27,7 @@ public class AusleiheFunctions {
         String path = sc.nextLine();
         System.out.print("Dateiname: ");
         String name = sc.nextLine();
-        createFileAusleihe file = new createFileAusleihe(ausleihListe, path, name);
+        DateierzeugerAusleihe file = new DateierzeugerAusleihe(ausleihListe, path, name);
         file.createJSON();
         System.out.println("JSON wurde erstellt!");
         System.out.println();

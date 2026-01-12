@@ -5,14 +5,14 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * <h1>Filecreator Ausleihe</h1>
+ * <h1>Dateierzeuger Ausleihe</h1>
  * <h6>Erstellen von JSON-Dateien für Ausleihe</h6>
  * @author Zwahlen Diego und Lombardo Julian
  * @version 1.2
  * @since 2026-01-07
  */
 
-public class createFileAusleihe {
+public class DateierzeugerAusleihe {
     /**
      * Konstruktor createFileAusleihe
      * @param ausleiheliste
@@ -22,13 +22,13 @@ public class createFileAusleihe {
     String path;
     String name;
     List<Ausleihe> ausleiheliste;
-    public createFileAusleihe(List<Ausleihe> ausleiheliste, String path, String name) {
+    public DateierzeugerAusleihe(List<Ausleihe> ausleiheliste, String path, String name) {
         this.path = path;
         this.ausleiheliste = ausleiheliste;
         this.name = name;
     }
     /**
-     * Erstellt JSON Dateien an dem mitgegebenen Pfad mit dem mitgegebenem Name
+     * Erstellt JSON Dateien an dem mitgegebenen Pfad mit den mitgegebenen Variablen
      */
     public void createJSON() {
         this.path += "\\" + this.name + ".json";

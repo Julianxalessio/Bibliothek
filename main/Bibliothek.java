@@ -36,10 +36,10 @@ public class Bibliothek {
 				System.out.print("Befehl (CSV, NEW, JSON, INPUT, EXIT): ");
 				String command = scSTRING.nextLine().toLowerCase();
 				switch (command) {
-					case "csv" -> BuchFunctions.getCSVBuch(buchListe);
-					case "new" -> BuchFunctions.newBuch(scINT, scSTRING, buchListe);
-					case "input" -> BuchFunctions.inputCSVBuch(scSTRING, buchListe);
-					case "json" -> BuchFunctions.createJSONBuch(scSTRING, buchListe);
+					case "csv" -> Buchfunktionen.getCSVBuch(buchListe);
+					case "new" -> Buchfunktionen.newBuch(scINT, scSTRING, buchListe);
+					case "input" -> Buchfunktionen.inputCSVBuch(scSTRING, buchListe);
+					case "json" -> Buchfunktionen.createJSONBuch(scSTRING, buchListe);
 					case "exit" -> doNothing();
 					default -> System.err.println("Unbekannter Befehl!");
 				}
@@ -47,10 +47,10 @@ public class Bibliothek {
 				System.out.print("Befehl (CSV, NEW, JSON, INPUT, EXIT): ");
 				String command = scSTRING.nextLine().toLowerCase();
 				switch (command) {
-					case "csv" -> PersonFunctions.getCSVPerson(personenListe);
-					case "new" -> PersonFunctions.newPerson(scFLOAT, scSTRING, personenListe);
-					case "input" -> PersonFunctions.inputCSVPerson(scSTRING, personenListe);
-					case "json" -> PersonFunctions.createJSONPerson(scSTRING, personenListe);
+					case "csv" -> Personenfunktionen.getCSVPerson(personenListe);
+					case "new" -> Personenfunktionen.newPerson(scFLOAT, scSTRING, personenListe);
+					case "input" -> Personenfunktionen.inputCSVPerson(scSTRING, personenListe);
+					case "json" -> Personenfunktionen.createJSONPerson(scSTRING, personenListe);
 					case "exit" -> doNothing();
 					default -> System.err.println("Unbekannter Befehl!");
 				}
@@ -58,8 +58,8 @@ public class Bibliothek {
 				System.out.print("Befehl (NEW, JSON, EXIT): ");
 				String command = scSTRING.nextLine().toLowerCase();
 				switch (command) {
-					case "new" -> AusleiheFunctions.newLease(scSTRING, ausleiheListe, personenListe, buchListe);
-					case "json" -> AusleiheFunctions.createJSONAusleihe(scSTRING, ausleiheListe);
+					case "new" -> Ausleihfunktionen.newLease(scSTRING, ausleiheListe, personenListe, buchListe);
+					case "json" -> Ausleihfunktionen.createJSONAusleihe(scSTRING, ausleiheListe);
 					case "exit" -> doNothing();
 					default -> System.err.println("Unbekannter Befehl!");
 				}

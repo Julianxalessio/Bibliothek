@@ -11,7 +11,7 @@ import java.util.Scanner;
  * @since 2026-01-07
  */
 
-public class PersonFunctions {
+public class Personenfunktionen {
 
     /**
      * Erstellt eine neue {@link Person} und fügt sie zur Personenliste hinzu.
@@ -55,7 +55,7 @@ public class PersonFunctions {
     }
 
     /**
-     * Holt den Pfad und den Namen der JSOn-Datei vom User und gibt sie an {@link createFilePerson} weiter.
+     * Holt den Pfad und den Namen der JSOn-Datei vom User und gibt sie an {@link DateierzeugerPerson} weiter.
      *
      * @param sc
      * @param personenListe
@@ -66,14 +66,14 @@ public class PersonFunctions {
         String path = sc.nextLine();
         System.out.print("Dateiname: ");
         String name = sc.nextLine();
-        createFilePerson file = new createFilePerson(personenListe, path, name);
+        DateierzeugerPerson file = new DateierzeugerPerson(personenListe, path, name);
         file.createJSON();
         System.out.println("JSON wurde erstellt!");
         System.out.println();
     }
 
     /**
-     * Holt den Pfad und das Trennzeichen der CSV-Datei vom user und gibt diese an {@link File} weiter.
+     * Holt den Pfad und das Trennzeichen der CSV-Datei vom user und gibt diese an {@link Datei} weiter.
      *
      * @param scSTRING
      * @param personenListe
@@ -85,7 +85,7 @@ public class PersonFunctions {
         String path = scSTRING.nextLine();
         System.out.print("Trennzeichen: ");
         String zeichen = scSTRING.nextLine();
-        File file = new File(path);
+        Datei file = new Datei(path);
         List <String> lines = file.readFilePerson();
         int amounts = 0;
         for (String line : lines) {

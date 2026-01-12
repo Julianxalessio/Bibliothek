@@ -21,7 +21,7 @@ public class Person {
 	}
 
 	/**
-	 * Gibt die CSV-Zeile an {@link PersonFunctions} zurück
+	 * Gibt die CSV-Zeile an {@link Personenfunktionen} zurück
 	 * @return CSV-Line
 	 */
 	public String toCSVLine() {

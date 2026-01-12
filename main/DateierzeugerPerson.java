@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * <h1>Filecreator Person</h1>
+ * <h1>Dateierzeuger Person</h1>
  * <h6>Erstellen von JSON-Dateien für Personen</h6>
  * @author Zwahlen Diego und Lombardo Julian
  * @version 1.2
@@ -13,9 +13,9 @@ import java.util.List;
  */
 
 
-public class createFilePerson {
+public class DateierzeugerPerson {
 	/**
-	 * Konstroktor für createFilePerson
+	 * Konstroktor für DateierzeugerPerson
 	 * @param personenListe
 	 * @param path
 	 * @param name
@@ -23,14 +23,14 @@ public class createFilePerson {
 	String path;
 	String name;
 	List<Person> personenListe;
-	public createFilePerson(List<Person> personenListe, String path, String name) {
+	public DateierzeugerPerson(List<Person> personenListe, String path, String name) {
 		this.path = path;
 		this.personenListe = personenListe;
 		this.name = name;
 	}
 
 	/**
-	 * Erstellt JSON Dateien an dem mitgegebenen Pfad mit dem mitgegebenem Name
+	 * Erstellt JSON Dateien an dem mitgegebenen Pfad mit den mitgegebenen Variablen
 	 */
 	public void createJSON() {
 		path += "\\" + this.name + ".json";

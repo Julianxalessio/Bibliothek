@@ -4,32 +4,32 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 /**
- * <h1>Filecreator Book</h1>
+ * <h1>Dateierzeuger Buch</h1>
  * <h6>Erstellen von JSON-Dateien für Buch</h6>
  * @author Zwahlen Diego und Lombardo Julian
  * @version 1.2
  * @since 2026-01-07
  */
 
-public class createFileBook {
+public class DateierzeugerBuch {
 	String path;
 	String name;
 	List<Buch> buchList;
 
 	/**
-	 * Konstroktor für createFilePerson
+	 * Konstroktor für DateierzeugerBuch
 	 * @param buchList
 	 * @param path
 	 * @param name
 	 */
-	public createFileBook(List<Buch> buchList, String path, String name) {
+	public DateierzeugerBuch(List<Buch> buchList, String path, String name) {
 		this.path = path;
 		this.buchList = buchList;
 		this.name = name;
 	}
 
 	/**
-	 * Erstellt JSON Dateien an dem mitgegebenen Pfad mit dem mitgegebenem Name
+	 * Erstellt JSON Dateien an dem mitgegebenen Pfad mit den mitgegebenen Variablen
 	 */
 	public void createJSON() {
 		path += "\\" + this.name + ".json";
