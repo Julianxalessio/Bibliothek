@@ -18,13 +18,13 @@ public class DateierzeugerBuch {
 
 	/**
 	 * Konstroktor für DateierzeugerBuch
-	 * @param buchList
+	 * @param buchListe
 	 * @param path
 	 * @param name
 	 */
-	public DateierzeugerBuch(List<Buch> buchList, String path, String name) {
+	public DateierzeugerBuch(List<String[]> buchListe, String path, String name) {
 		this.path = path;
-		this.buchList = buchList;
+		this.buchList = buchListe;
 		this.name = name;
 	}
 
