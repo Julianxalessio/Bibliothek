@@ -1,0 +1,14 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch SQLFunktionen",
+            "request": "launch",
+            "mainClass": "src.database.SQLFunktionen",
+            "classPaths": [
+                "lib/mysql-connector-j-9.6.0.tar.gz"
+            ]
+        }
+    ]
+}

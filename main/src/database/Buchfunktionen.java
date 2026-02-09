@@ -1,8 +1,9 @@
-package main;
+package src.database;
 
 import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
+
 
 /**<h1>Buchfunktionen</h1>
  *<h6>Funktionen für Buch</h6>
@@ -12,27 +13,17 @@ import java.util.Scanner;
  */
 
 public class Buchfunktionen {
-    /**
-     * Gibt die Bücher im CSV-Format aus.
-     *
-     * @param buchListe
-     */
-    public static void getCSVBuch(List<Buch> buchListe) {
+    public static void getCSVBuch(List<String[]> buchListe) {
         System.out.println();
         System.out.println("CSV: ");
-        for (Buch Buch : buchListe) {
-            System.out.println(Buch.toCSVLine());
+        // SQL: Replace buchListe with a SELECT result (mapped to Buch objects).
+        for (String[] Buch : buchListe) {
+            System.out.println(String.join(",", Buch));
         }
         System.out.println();
     }
-    /**
-     * Erstellt eine neue {@link Buch} und fügt sie zur Buchliste hinzu.
-     *
-     * @param scINT
-     * @param scSTRING
-     * @param buchListe
-     */
-    public static void newBuch(Scanner scINT, Scanner scSTRING, List<Buch> buchListe) {
+
+    public static void newBuch(Scanner scINT, Scanner scSTRING, List<String[]> buchListe) {
         System.out.println();
         System.out.print("ISBN: ");
         int ISBN = scINT.nextInt();
@@ -60,7 +51,7 @@ public class Buchfunktionen {
                             System.err.println("Die Adresse darf nicht leer sein!");
                         } else {
                             System.out.println("Buch erfasst!");
-                            buchListe.add(new Buch(titel, autor, genre, Integer.toString(ISBN), Integer.toString(inventar)));
+                            // SQL: INSERT new book record.
                         }
                     }
                 }
@@ -68,20 +59,15 @@ public class Buchfunktionen {
         }
         System.out.println();
     }
-    /**
-     * Holt den Pfad und das Trennzeichen der CSV-Datei vom user und gibt diese an {@link Datei} weiter.
-     *
-     * @param scSTRING
-     * @param buchListe
-     */
-    public static void inputCSVBuch(Scanner scSTRING, List<Buch> buchListe) throws IOException {
+
+    public static void inputCSVBuch(Scanner scSTRING, List<String[]> buchListe) throws IOException {
         System.out.println();
         System.out.print("Dateipfad: ");
         String path = scSTRING.nextLine();
         System.out.print("Trennzeichen: ");
         String zeichen = scSTRING.nextLine();
         Datei file = new Datei(path);
-        List <String> lines = file.readFileBuch();
+        List<String> lines = file.readFileBuch();
         int amounts = 0;
         for (String line : lines) {
             String[] splitedLine = line.trim().split(zeichen);
@@ -93,7 +79,7 @@ public class Buchfunktionen {
                 String autor = splitedLine[1];
                 String genre = splitedLine[2];
                 String inventar = splitedLine[4];
-                buchListe.add(new Buch(titel, autor, genre, ISBN, inventar));
+                // SQL: INSERT new book record from CSV line.
                 amounts++;
             }
         }
@@ -106,12 +92,13 @@ public class Buchfunktionen {
      * @param sc
      * @param buchListe
      */
-    public static void createJSONBuch(Scanner sc, List<Buch> buchListe) {
+    public static void createJSONBuch(Scanner sc, List<String[]> buchListe) {
         System.out.println();
         System.out.print("Dateipfad: ");
         String path = sc.nextLine();
         System.out.print("Dateiname: ");
         String name = sc.nextLine();
+        // SQL: Replace buchListe with a SELECT result (mapped to Buch objects).
         DateierzeugerBuch file = new DateierzeugerBuch(buchListe, path, name);
         file.createJSON();
         System.out.println("JSON wurde erstellt!");

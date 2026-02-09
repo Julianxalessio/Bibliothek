@@ -1,12 +1,10 @@
+package src.database;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
-import database.Ausleihfunktionen;
-import database.Buchfunktionen;
-import database.Personenfunktionen;
 
 public class Bibliothek {
 
@@ -17,8 +15,9 @@ public class Bibliothek {
 	/** 
 	 * @param args
 	 * @throws IOException
+	 * @throws SQLException 
 	 */
-	public static void main (String[] args) throws IOException {
+	public static void main (String[] args) throws IOException, SQLException {
 		Scanner scFLOAT = new Scanner(System.in);
 		Scanner scSTRING = new Scanner(System.in);
 		Scanner scINT = new Scanner(System.in);
@@ -53,7 +52,7 @@ public class Bibliothek {
 				String command = scSTRING.nextLine().toLowerCase();
 				switch (command) {
 					case "new" -> Ausleihfunktionen.newLease(scSTRING, ausleiheListe, personenListe, buchListe);
-					case "json" -> Ausleihfunktionen.createJSONAusleihe(scSTRING, ausleiheListe);
+					case "json" -> Ausleihfunktionen.createJSONAusleihe(scSTRING);
 					case "exit" -> doNothing();
 					default -> System.err.println("Unbekannter Befehl!");
 				}

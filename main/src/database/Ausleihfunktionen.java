@@ -1,5 +1,6 @@
-package main;
+package src.database;
 
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -18,15 +19,16 @@ public class Ausleihfunktionen {
      * Aus der {@link Ausleihe} eine JSON-Datei erstellen
      *
      * @param sc
-     * @param ausleihListe
+     * @throws SQLException 
      */
 
-    public static void createJSONAusleihe(Scanner sc, List<Ausleihe> ausleihListe) {
+    public static void createJSONAusleihe(Scanner sc) throws SQLException {
         System.out.println();
         System.out.print("Dateipfad: ");
         String path = sc.nextLine();
         System.out.print("Dateiname: ");
         String name = sc.nextLine();
+        List<String[]> ausleihListe = new SQLFunktionen().getAusleihListe();
         DateierzeugerAusleihe file = new DateierzeugerAusleihe(ausleihListe, path, name);
         file.createJSON();
         System.out.println("JSON wurde erstellt!");
@@ -42,7 +44,7 @@ public class Ausleihfunktionen {
      * @param buchListe
      */
 
-    public static void newLease(Scanner scSTRING, List<Ausleihe> ausleihListe, List<Person> personenListe, List<Buch> buchListe) {
+    public static void newLease(Scanner scSTRING, List<String[]> ausleihListe, List<String[]> personenListe, List<String[]> buchListe) {
         System.out.println();
         System.out.print("Name des Kunden: ");
         String kundenName = scSTRING.nextLine();
@@ -59,22 +61,24 @@ public class Ausleihfunktionen {
                 if (startLeaseTime.isEmpty()) {
                     System.err.println("Das Startdatum muss ausgefüllt werden! Bitte versuchen Sie es erneut!");
                 } else {
-                    Person[] matchPerson = new Person[1];
-                    Buch[] matchBuch = new Buch[1];
-                    for (Person Person : personenListe) {
-                        if (Person.name.equals(kundenName)){
-                            matchPerson[0] = Person;
+                    String[] matchPerson = new String[1];
+                    String[] matchBuch = new String[1];
+                    // SQL: Replace list lookups with SELECTs for the matching person and book.
+                    for (String[] Person : personenListe) {
+                        if (Person[0].equals(kundenName)){    
+                            matchPerson[0] = Person[0];
                             break;
                         }
                     }
-                    for (Buch Buch : buchListe) {
-                        if (Buch.titel.equals(buchName)){
-                            matchBuch[0] = Buch;
+                    for (String[] Buch : buchListe) {
+                        if (Buch[0].equals(buchName)){
+                            matchBuch[0] = Buch[0];
                             break;
                         }
                     }
                     System.out.println("Ausleihe erfasst!");
-                    ausleihListe.add(new Ausleihe(matchBuch[0], matchPerson[0], startLeaseTime));
+                    // SQL: INSERT new loan record.
+                    ausleihListe.add(new String[]{matchBuch[0], matchPerson[0], startLeaseTime});
                 }
             }
         }

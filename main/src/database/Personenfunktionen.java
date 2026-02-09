@@ -1,4 +1,4 @@
-package database;
+package src.database;
 
 import java.util.List;
 import java.util.Scanner;

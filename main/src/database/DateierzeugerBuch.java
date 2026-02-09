@@ -1,31 +1,31 @@
-package main;
+package src.database;
 
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 
 /**
- * <h1>Dateierzeuger Person</h1>
- * <h6>Erstellen von JSON-Dateien für Personen</h6>
+ * <h1>Dateierzeuger Buch</h1>
+ * <h6>Erstellen von JSON-Dateien für Buch</h6>
  * @author Zwahlen Diego und Lombardo Julian
  * @version 1.2
  * @since 2026-01-07
  */
 
+public class DateierzeugerBuch {
+	String path;
+	String name;
+	List<String[]> buchList;
 
-public class DateierzeugerPerson {
 	/**
-	 * Konstroktor für DateierzeugerPerson
-	 * @param personenListe
+	 * Konstroktor für DateierzeugerBuch
+	 * @param buchList
 	 * @param path
 	 * @param name
 	 */
-	String path;
-	String name;
-	List<Person> personenListe;
-	public DateierzeugerPerson(List<Person> personenListe, String path, String name) {
+	public DateierzeugerBuch(List<String[]> buchList, String path, String name) {
 		this.path = path;
-		this.personenListe = personenListe;
+		this.buchList = buchList;
 		this.name = name;
 	}
 
@@ -39,32 +39,31 @@ public class DateierzeugerPerson {
 			myWriter.write("[");
 			myWriter.write(System.lineSeparator());
 			int amount = 0;
-			for (Person person : this.personenListe) {
+			for (String[] Buch : this.buchList) {
 				amount++;
-				if (amount < this.personenListe.size()) {
+
 					myWriter.write("  {");
 					myWriter.write(System.lineSeparator());
-					myWriter.write("    \"Name\": " + "\"" + person.name + "\",");
+					myWriter.write("    \"Titel\": " + "\"" + Buch[0] + "\",");
 					myWriter.write(System.lineSeparator());
-					myWriter.write("    \"Adresse\": " + "\"" + person.adresse + "\"");
+					myWriter.write("    \"Autor\": " + "\"" + Buch[1] + "\",");
 					myWriter.write(System.lineSeparator());
+					myWriter.write("    \"ISBN\": " + "\"" + Buch[2] + "\",");
+					myWriter.write(System.lineSeparator());
+					myWriter.write("    \"Genre\": " + "\"" + Buch[3] + "\",");
+					myWriter.write(System.lineSeparator());
+					myWriter.write("    \"Anzahl verfügbar\": " + "\"" + Buch[4] + "\"");
+				if (amount < this.buchList.size()) {
 					myWriter.write("  },");
 					myWriter.write(System.lineSeparator());
 					
 				} else {
-					myWriter.write("  {");
-					myWriter.write(System.lineSeparator());
-					myWriter.write("    \"Name\": " + "\"" + person.name + "\",");
-					myWriter.write(System.lineSeparator());
-					myWriter.write("    \"Adresse\": " + "\"" + person.adresse + "\"");
-					myWriter.write(System.lineSeparator());
 					myWriter.write("  }");
 					myWriter.write(System.lineSeparator());
 				}
 
 			}
 			myWriter.write("]");
-			
 			myWriter.close();
 		} catch (IOException e) {
 			e.printStackTrace();

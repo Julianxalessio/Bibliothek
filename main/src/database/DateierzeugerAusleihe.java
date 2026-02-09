@@ -1,8 +1,9 @@
-package main;
+package src.database;
 
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
+
 
 /**
  * <h1>Dateierzeuger Ausleihe</h1>
@@ -21,8 +22,8 @@ public class DateierzeugerAusleihe {
      */
     String path;
     String name;
-    List<Ausleihe> ausleiheliste;
-    public DateierzeugerAusleihe(List<Ausleihe> ausleiheliste, String path, String name) {
+    List<String[]> ausleiheliste;
+    public DateierzeugerAusleihe(List<String[]> ausleiheliste, String path, String name) {
         this.path = path;
         this.ausleiheliste = ausleiheliste;
         this.name = name;
@@ -37,25 +38,25 @@ public class DateierzeugerAusleihe {
             myWriter.write("{");
             myWriter.write(System.lineSeparator());
             int amount = 0;
-            for (Ausleihe Ausleihe : this.ausleiheliste) {
+            for (String[] Ausleihe : this.ausleiheliste) {
                 amount++;
-                myWriter.write("  " + "\""+ Ausleihe.datum + Ausleihe.buecher[0].ISBN + Ausleihe.personnen[0].name + "\": {");
+                myWriter.write("  " + "\""+ Ausleihe[0] + Ausleihe[1] + Ausleihe[2] + "\": {");
                 myWriter.write(System.lineSeparator());
-                myWriter.write("    " + "\"" + Ausleihe.buecher[0].ISBN + "\": {");
+                myWriter.write("    " + "\"" + Ausleihe[3] + "\": {");
                 myWriter.write(System.lineSeparator());
-                myWriter.write("      \"Titel\": " + "\"" + Ausleihe.buecher[0].titel + "\",");
+                myWriter.write("      \"Titel\": " + "\"" + Ausleihe[4] + "\",");
                 myWriter.write(System.lineSeparator());
-                myWriter.write("      \"Autor\": " + "\"" + Ausleihe.buecher[0].autor + "\",");
+                myWriter.write("      \"Autor\": " + "\"" + Ausleihe[5] + "\",");
                 myWriter.write(System.lineSeparator());
-                myWriter.write("      \"Genre\": " + "\"" + Ausleihe.buecher[0].genre + "\",");
+                myWriter.write("      \"Genre\": " + "\"" + Ausleihe[6] + "\",");
                 myWriter.write(System.lineSeparator());
-                myWriter.write("      \"Inventar\": " + "\"" + Ausleihe.buecher[0].inventar + "\"");
+                myWriter.write("      \"Inventar\": " + "\"" + Ausleihe[7] + "\"");
                 myWriter.write(System.lineSeparator());
                 myWriter.write("    },");
                 myWriter.write(System.lineSeparator());
-                myWriter.write("    " + "\"" + Ausleihe.personnen[0].name + "\": {");
+                myWriter.write("    " + "\"" + Ausleihe[8] + "\": {");
                 myWriter.write(System.lineSeparator());
-                myWriter.write("      \"Adresse\": " + "\"" + Ausleihe.personnen[0].adresse + "\"");
+                myWriter.write("      \"Adresse\": " + "\"" + Ausleihe[9] + "\"");
                 myWriter.write(System.lineSeparator());
                 myWriter.write("    }");
                 myWriter.write(System.lineSeparator());
